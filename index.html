@@ -332,34 +332,48 @@ const firebaseConfig = {
 
 <!-- Contador após clicar em SIM -->
   <script>
-    function respostaSim() {
-      const agora = new Date().toISOString();
-      firebase.database().ref("pedido").set({ simClick: agora }).then(() => {
-        document.body.innerHTML = `
-          <section>
-            <h1>EU TE AMO! ❤️</h1>
-            <p id="contador-sim" style="font-size: 1.5em; color: #ff4081; margin-top: 20px;"></p>
-          </section>
-        `;
-        iniciarContadorSim(new Date(agora));
-      });
-    }
+  function respostaSim() {
+    const ref = firebase.database().ref("pedido/simClick");
 
-    function iniciarContadorSim(dataInicio) {
-      const contadorSim = document.getElementById("contador-sim");
-      function atualizarContador() {
-        const agora = new Date();
-        const diff = agora - dataInicio;
-        const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutos = Math.floor((diff / (1000 * 60)) % 60);
-        const segundos = Math.floor((diff / 1000) % 60);
-        contadorSim.textContent = `Já se passaram ${dias} dias, ${horas}h ${minutos}m ${segundos}s desde que você disse sim 💖`;
+    // Verifica se já existe a data no Firebase
+    ref.once("value").then((snapshot) => {
+      const dataExistente = snapshot.val();
+      if (dataExistente) {
+        mostrarTelaAmor(new Date(dataExistente));
+      } else {
+        const agora = new Date().toISOString();
+        ref.set(agora).then(() => {
+          mostrarTelaAmor(new Date(agora));
+        });
       }
-      setInterval(atualizarContador, 1000);
-      atualizarContador();
+    });
+  }
+
+  function mostrarTelaAmor(dataSim) {
+    document.body.innerHTML = `
+      <section>
+        <h1>EU TE AMO! ❤️</h1>
+        <p id="contador-sim" style="font-size: 1.5em; color: #ff4081; margin-top: 20px;"></p>
+      </section>
+    `;
+    iniciarContadorSim(dataSim);
+  }
+
+  function iniciarContadorSim(dataInicio) {
+    const contadorSim = document.getElementById("contador-sim");
+    function atualizarContador() {
+      const agora = new Date();
+      const diff = agora - dataInicio;
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
+      contadorSim.textContent = `Já se passaram ${dias} dias, ${horas}h ${minutos}m ${segundos}s desde que você disse sim 💖`;
     }
-  </script>
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+  }
+</script>
           
     </body>
     </html>
