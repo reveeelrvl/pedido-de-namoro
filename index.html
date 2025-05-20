@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💞?</title>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+        body {
+          font-family: 'Arial', sans-serif;
+          background: #fff0f5;
+            overflow-x: hidden;
+        }
+    
+        section {
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          padding: 40px 20px;
+          text-align: center;
+        }
+    
+        h1, h2, p {
+          margin: 20px 0;
+        }
+    
+        h1 {
+          font-size: 2.5em;
+          color: #d63384;
+        }
+    
+        h2 {
+          font-size: 2em;
+          color: #ff4081;
+        }
+    
+        img {
+          max-width: 90%;
+          border-radius: 20px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          margin-top: 20px;
+        }
+    
+        .btn {
+          margin-top: 30px;
+          padding: 15px 30px;
+          font-size: 1.2em;
+          border: none;
+          border-radius: 10px;
+          background-color: #ff66b2;
+          color: white;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+    
+        .btn:hover {
+          background-color: #ff3385;
+        }
+    
+        .carta {
+          max-width: 600px;
+          background: white;
+          padding: 30px;
+          border-radius: 15px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          font-size: 1.2em;
+          line-height: 1.6;
+        }
+    
+        .contador {
+          font-size: 1.5em;
+          margin-top: 20px;
+          color: #ff4081;
+        }
+        /* --- IMAGEM ESTILIZADA --- */
+.styled-image {
+  width: 300px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  margin-top: 20px;
+}
+
+/* --- CARROSSEL --- */
+.carousel {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 15px;
+  margin: 20px auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel-track img {
+  min-width: 100%;
+  border-radius: 15px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #d63384;
+  cursor: pointer;
+  padding: 0 8px;
+  z-index: 1;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.carousel-btn:hover {
+  opacity: 1;
+}
+
+.carousel-btn.left {
+  left: 5px;
+}
+
+.carousel-btn.right {
+  right: 5px;
+}
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffe0ec, #b4b0b0);
+}
+
+.heart-float {
+  position: absolute;
+  color: red;
+  animation: fall 8s linear forwards, pulse 1.5s ease-in-out infinite;
+  opacity: 0.8;
+  will-change: transform;
+}
+
+@keyframes fall {
+  0% {
+    top: -10%;
+    opacity: 1;
+  }
+  100% {
+    top: 110%;
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+
+
+      </style>
+    </head>
+    <body>
+        <div class="hearts-container" id="hearts-container"></div>
+
+
+      <!-- Seção 1 -->
+    <section>
+    <h1 class="reveal">Oi, Princesa</h1>
+    <p class="reveal">Essa foi a nossa primeira foto kkkkkk.</p>
+    <img class="reveal styled-image" src="IMG-20250215-WA0008.jpg" alt="Foto">
+  </section>
+  
+    
+      <!-- Seção 2 -->
+<section>
+    <h2 class="reveal">Momentos ao seu lado 💞</h2>
+    <p class="reveal">Quando sorris, até o tempo para, rendido à beleza da tua luz. Lembra desses dias? Não tem muitos registrados mas vários na memória.</p>
+  
+    <div class="carousel reveal">
+      <button class="carousel-btn left" onclick="mudarSlide(-1)">‹</button>
+      
+      <div class="carousel-track" id="carousel-track">
+        <img src="IMG_20250505_045028.jpg" alt="Foto especial">
+        <img src="IMG_20250222_221612_HDR.jpg" alt="Outra foto especial">
+        <img src="IMG-20250326-WA0028.jpg" alt="Outra foto especial">
+      </div>
+      
+      <button class="carousel-btn right" onclick="mudarSlide(1)">›</button>
+    </div>
+  
+    <!-- Música Spotify -->
+    <div class="reveal" style="margin-top: 30px;">
+      <iframe style="border-radius:12px" 
+        src="https://open.spotify.com/embed/track/74JrSRW1FdHJ05lzufQ7qS?utm_source=generator&theme=0" 
+        width="300" 
+        height="80" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+      </iframe>
+    </div>
+    <p class="reveal">"Cause when i look in her eyes, i realize
+      i need her sharing her world beside me
+      so i have got to be there..."</p>
+  </section>
+  
+    
+      <!-- Seção 3: Carta com contador -->
+      <section>
+        <h2 class="reveal">Uma cartinha pra você 💌</h2>
+        <div class="carta reveal">
+          <p>
+            O começo da nossa história não foi comum e não entendo mas parece que sempre teve algo que me atraía á você.
+            A gente foi se conhecendo e se aproximando tão naturalmente, tão leve... Eu pude ver de maneira clara o quão linda é e isso não é só sobre beleza, porque também é meu colírio.
+            O seu jeitinho meigo que me cativa, a forma com que se expressa, o jeito síngelo de me cobrar que me faz melhorar.
+            Você por INTEIRA faz o meu olho brilhar. Eu quero compartilhar a vida ao seu lado, Roberta.
+          </p>
+          <div class="contador" id="contador"></div>
+        </div>
+      </section>
+    
+      <!-- Seção 4: Pedido -->
+      <section>
+        <h1 class="reveal">Aceita namorar comigo? 💍</h1>
+        <button class="btn reveal" onclick="respostaSim()">Sim! 🥰</button>
+      </section>
+    
+      <!-- ScrollReveal -->
+      <script src="https://unpkg.com/scrollreveal"></script>
+      <script>
+        ScrollReveal().reveal('.reveal', {
+          delay: 200,
+          distance: '50px',
+          duration: 1000,
+          easing: 'ease-out',
+          origin: 'bottom',
+          interval: 200,
+        });
+    
+       // function respostaSim() {
+        //  document.body.innerHTML = "<section><h1>EU TE AMO! ❤️</h1></section>";
+        //} 
+    
+        // Contador desde o início
+        const dataInicio = new Date("2024-02-23T15:08:00"); // Altere aqui se quiser
+        const contador = document.getElementById("contador");
+    
+        function atualizarContador() {
+          const agora = new Date();
+          const diff = agora - dataInicio;
+    
+          const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const minutos = Math.floor((diff / (1000 * 60)) % 60);
+          const segundos = Math.floor((diff / 1000) % 60);
+    
+          contador.textContent = `Já se passaram ${dias} dias, ${horas}h ${minutos}m ${segundos}s desde que tudo começou 💖`;
+        }
+    
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
+      </script>
+        <script>
+            let slideAtual = 0;
+          
+            function mudarSlide(direcao) {
+              const track = document.getElementById('carousel-track');
+              const totalSlides = track.children.length;
+              slideAtual = (slideAtual + direcao + totalSlides) % totalSlides;
+              const largura = track.children[0].offsetWidth;
+              track.style.transform = `translateX(-${slideAtual * largura}px)`;
+            }
+          
+            window.addEventListener("resize", () => mudarSlide(0)); // Corrige posição no resize
+          </script>
+          <script>
+            function gerarCoracao() {
+  const container = document.getElementById("hearts-container");
+  const heart = document.createElement("div");
+  heart.classList.add("heart-float");
+
+  const cores = ["#ff4d6d", "#ff6b81", "#ff85a1", "#ff99b8", "#ffccd5"];
+  heart.style.color = cores[Math.floor(Math.random() * cores.length)];
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.top = "-5%";
+  heart.style.fontSize = Math.random() * 30 + 15 + "px";
+  heart.textContent = "❤";
+
+  container.appendChild(heart);
+  setTimeout(() => heart.remove(), 9000); // remove após animação
+}
+
+          
+            setInterval(gerarCoracao, 300); // Gera um coração a cada 300ms
+          </script>
+          
+          <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+<script>
+const firebaseConfig = {
+    apiKey: "AIzaSyBVieSzGrK8JHVPzL-L7wOC7vDoO4luU9Y",
+    authDomain: "pedido-namor0.firebaseapp.com",
+    databaseURL: "https://pedido-namor0-default-rtdb.firebaseio.com",
+    projectId: "pedido-namor0",
+    storageBucket: "pedido-namor0.firebasestorage.app",
+    messagingSenderId: "332710670127",
+    appId: "1:332710670127:web:b56554c97be168b94b3bda",
+    measurementId: "G-55S7Z6W6GH"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<!-- Contador após clicar em SIM -->
+  <script>
+    function respostaSim() {
+      const agora = new Date().toISOString();
+      firebase.database().ref("pedido").set({ simClick: agora }).then(() => {
+        document.body.innerHTML = `
+          <section>
+            <h1>EU TE AMO! ❤️</h1>
+            <p id="contador-sim" style="font-size: 1.5em; color: #ff4081; margin-top: 20px;"></p>
+          </section>
+        `;
+        iniciarContadorSim(new Date(agora));
+      });
+    }
+
+    function iniciarContadorSim(dataInicio) {
+      const contadorSim = document.getElementById("contador-sim");
+      function atualizarContador() {
+        const agora = new Date();
+        const diff = agora - dataInicio;
+        const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const minutos = Math.floor((diff / (1000 * 60)) % 60);
+        const segundos = Math.floor((diff / 1000) % 60);
+        contadorSim.textContent = `Já se passaram ${dias} dias, ${horas}h ${minutos}m ${segundos}s desde que você disse sim 💖`;
+      }
+      setInterval(atualizarContador, 1000);
+      atualizarContador();
+    }
+  </script>
+          
+    </body>
+    </html>
